@@ -1,0 +1,22 @@
+{% extends "flights/base.html" %}
+
+{% block body %}
+
+<h1>Search Flights</h1>
+
+<form method="post" autocomplete="off">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {{ form.origin_full_name.label_tag }}
+    {{ form.origin_full_name }}
+    <datalist id="stations">
+    </datalist>
+    {{ form.destination_full_name.label_tag }}
+    {{ form.destination_full_name }}
+    <input type="submit" value="Search" />
+</form>
+
+{% load static %}
+<script src="{% static 'flights/search.js' %}"></script>
+
+{% endblock %}

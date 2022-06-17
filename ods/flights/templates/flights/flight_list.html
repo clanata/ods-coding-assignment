@@ -1,0 +1,31 @@
+{% extends "flights/base.html" %}
+
+{% block body %}
+<a href="/flights/">Back to search</a>
+<table align="center">
+    <thead>
+        {% if object_list|length > 0 %}
+        <tr>
+            <th>Flight</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Departure</th>
+            <th>Arrival</th>
+        </tr>
+        {% endif %}
+    </thead>
+    <tbody>
+        {% for flight in object_list %}
+        <tr>
+            <td>{{ flight.flt_num }}</td>
+            <td>{{ flight.origin_station }}</td>
+            <td>{{ flight.destination_station }}</td>
+            <td>{{ flight.out_gmt|date:"DATETIME_FORMAT" }}</td>
+            <td>{{ flight.in_gmt|date:"DATETIME_FORMAT" }}</td>
+        </tr>
+        {% empty %}
+        <tr>No flights found.</tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
