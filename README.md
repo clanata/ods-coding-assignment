@@ -11,7 +11,7 @@ To set up the environment for running the application, follow these steps (assum
 1. Create a virtualenv: `virtualenv -p /usr/bin/python3 env`
 2. Activate the virtualenv: `python3 env/bin/activate`
 3. Install the required packages: `pip install -r ods-coding-assignment/requirements.txt`
-4. Set up the database: `python manage.py ods-coding-assignment/ods/manage.py`
+4. Set up the database: `python ods-coding-assignment/ods/manage.py migrate`
 5. Run pylint: `cd ods-coding-assignment; pylint flights ods --ignore=migrations`
 6. Run unit tests: `python manage.py test flights`
 
